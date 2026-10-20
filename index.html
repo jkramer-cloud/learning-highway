@@ -1,6 +1,8 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#12243b"><title>Learning Highway | Retro Math Racer</title><style>
 :root{--ink:#eef8ff;--panel:#142a48;--line:#54738f;--gold:#ffd271;--muted:#b8d0e5}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#09192c;color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}body{background:radial-gradient(ellipse at 50% 0,#315979,#09192c 65%)}button,select,input{font:inherit}button{cursor:pointer}button:disabled{opacity:.46;cursor:not-allowed}.shell{max-width:1240px;margin:auto;padding:14px}.head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}.brand{font-size:clamp(21px,3vw,31px);font-weight:1000;letter-spacing:-.05em;color:var(--gold);text-shadow:3px 3px #17304c}.sub{font-size:12px;letter-spacing:.15em;color:#d2e4f1;font-weight:800}.pill{padding:6px 11px;border-radius:99px;border:1px solid #6487a0;background:#142e4b;font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:14px;align-items:start}.screen{border:3px solid #8eb9d5;background:#0b2035;border-radius:15px;overflow:hidden;box-shadow:0 12px 35px #0008;position:relative}.screen:before{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 0 3px #091827,inset 0 0 30px #07152280}canvas{width:100%;height:auto;display:block;image-rendering:pixelated;aspect-ratio:16/10;background:#4b9dcc}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:#081426ba;z-index:3}.overlay.hidden{display:none}.panel{border:2px solid #7897ad;background:#142a43f2;border-radius:12px;padding:18px;max-width:640px;width:100%;box-shadow:7px 7px #071626}.panel h1,.panel h2{margin:0 0 7px;line-height:1.1}.panel h1{color:var(--gold);font-size:clamp(26px,4vw,42px);text-shadow:3px 3px #5d2947}.panel p{color:#d5e8f4;margin:8px 0 15px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.field{display:flex;flex-direction:column;gap:5px;color:#d8e7f3;font-size:13px;font-weight:800}.field select{min-height:42px;background:#0d233b;border:1px solid #688ba4;color:white;border-radius:7px;padding:8px;width:100%}.btn{border:2px solid #f8e1a2;background:linear-gradient(180deg,#ffe39a,#eeb852);border-radius:8px;color:#26314a;padding:10px 15px;min-height:42px;font-weight:950;box-shadow:0 4px #9b6f32}.btn:hover{filter:brightness(1.09)}.btn.alt{color:#f1faff;background:linear-gradient(#285577,#163751);border-color:#83b0d0;box-shadow:0 4px #0a2439}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}.side{display:flex;flex-direction:column;gap:12px}.card{background:linear-gradient(#1c3b59,#112840);border:1px solid #527796;border-radius:13px;padding:13px}.card h2{margin:0 0 8px;font-size:16px;color:var(--gold)}.stats{display:grid;grid-template-columns:1fr 1fr;gap:7px}.stat{background:#091d30;border:1px solid #43617b;border-radius:7px;padding:8px}.stat b{font-size:19px;display:block;color:#fff}.stat small{font-size:11px;color:var(--muted)}.hud{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0;color:#d6e9f8}.status{color:var(--gold);font-weight:900}.controls{display:flex;align-items:center;gap:9px;margin-top:10px;justify-content:center}.control{min-width:96px;touch-action:none;user-select:none;background:#23496a;color:white;border:2px solid #87b5d1;padding:13px;border-radius:10px;font-size:19px;font-weight:900}.control:active{background:#447ea5}.garage{display:grid;gap:7px}.vehicle{display:flex;align-items:center;gap:9px;text-align:left;width:100%;border:1px solid #597c99;border-radius:9px;background:#102941;color:white;padding:9px}.vehicle.active{border:2px solid #ffe08c;background:#245278}.vehicle.locked{opacity:.63}.caricon{font-size:22px}.vinfo{display:flex;flex-direction:column;flex:1}.vinfo small{color:#bad2e3;font-size:11px}.colors{display:flex;gap:7px;flex-wrap:wrap}.swatch{width:29px;height:29px;border-radius:7px;border:2px solid #e4ebf2;cursor:pointer}.swatch.active{outline:3px solid var(--gold);outline-offset:2px}.help{font-size:12px;color:#d3e4f0;line-height:1.65}.help kbd{background:#071b2d;padding:2px 6px;border:1px solid #64829a;border-radius:4px}.note{font-size:11px;color:#b6cfdf}.footer{text-align:center;color:#a8c3d4;font-size:12px;padding:17px 0}.badge{color:#ffe8a6;font-size:12px;font-weight:900}.run-note{color:#e6f0fb;font-weight:900;min-height:23px}.flash{animation:pop .3s}@keyframes pop{50%{transform:scale(1.04)}}@media(max-width:900px){.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:610px){.shell{padding:9px}.side{display:flex}.panel{padding:12px}.grid2{grid-template-columns:1fr}.control{flex:1}.head .sub{font-size:10px}canvas{aspect-ratio:16/11}}
-</style></head><body><div class="shell"><header class="head"><div><div class="sub">NACHES LEARNING HUB · ARCADE EDITION</div><div class="brand">🏁 LEARNING HIGHWAY</div></div><div class="pill">V1 · RETRO MATH RACER</div></header><main class="layout"><div><section class="screen"><canvas id="road" width="960" height="600" aria-label="Retro racing game with math answer gates"></canvas><div id="overlay" class="overlay"><div id="menu" class="panel"><h1>MATH HIGHWAY</h1><p>Drive an 80s–90s arcade highway. Steer into the correct answer lane before the checkpoint reaches your car. Earn coins, master math, and unlock new rides!</p><div class="grid2"><label class="field">Math challenge<select id="mode"><option value="multiply">Multiplication</option><option value="divide">Division</option><option value="mixed">Multiply + Divide</option><option value="addsub">Addition + Subtraction</option><option value="fractions">Fractions & Decimals</option><option value="integers">Integers & Algebra Basics</option></select></label><label class="field">Difficulty<select id="difficulty"><option value="1">Cruise · Easy</option><option value="2" selected>City · Medium</option><option value="3">Highway · Hard</option><option value="4">Turbo · Expert</option></select></label></div><div class="actions"><button class="btn" id="start">▶ START RACE</button><button class="btn alt" id="showGarage">🚘 GARAGE & UNLOCKS</button></div><p class="note">Keyboard: ← / → or A / D. On touchscreens, use the steering buttons. Select a lane early—your car changes lanes in real time.</p></div></div></section><div class="hud"><div id="prompt" class="status">Select a mode and start your engine.</div><div id="feedback" class="run-note"></div></div><div class="controls"><button id="left" class="control" aria-label="Steer left">◀ LEFT</button><button id="pause" class="btn alt">⏸ Pause</button><button id="right" class="control" aria-label="Steer right">RIGHT ▶</button></div></div><aside class="side"><section class="card"><h2>DRIVER DASHBOARD</h2><div class="stats"><div class="stat"><b id="score">0</b><small>Score</small></div><div class="stat"><b id="coins">0</b><small>Career coins</small></div><div class="stat"><b id="streak">0</b><small>Answer streak</small></div><div class="stat"><b id="accuracy">—</b><small>Accuracy</small></div><div class="stat"><b id="distance">0</b><small>Checkpoints</small></div><div class="stat"><b id="best">0</b><small>Personal best</small></div></div><p class="note">Each race has 12 checkpoints. Correct answers earn more points and coins at higher difficulties.</p></section><section class="card"><h2>YOUR GARAGE</h2><div id="vehicles" class="garage"></div><div style="height:10px"></div><div class="badge">PAINT YOUR RIDE</div><div id="colors" class="colors" style="margin:9px 0"></div><div id="unlockNotice" class="note"></div></section><section class="card"><h2>DRIVING TIPS</h2><div class="help">• Read the math problem at the top of the road.<br>• Three answer gates appear in the distance.<br>• Steer with <kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd>.<br>• Stay in the correct lane when the gates cross your car.<br>• Press <kbd>Space</kbd> to pause or continue.<br>• Progress saves automatically in this browser.</div></section></aside></main><footer class="footer">Original retro-inspired classroom game · Runs offline after download · No logins, ads, or external assets · Saves only on this device</footer></div><script>
+
+.track-preview{margin:12px 0 2px;padding:10px 12px;border:1px solid #e4ba6f;border-radius:8px;background:#0a2543;color:#ffe7ae;font-weight:800;font-size:12px;letter-spacing:.02em}.stats .stat b#health{color:#ff948e;letter-spacing:1px}.stats .stat b#velocity{color:#9af5f0}.control:focus-visible,.btn:focus-visible,.vehicle:focus-visible{outline:3px solid #ffd26f;outline-offset:2px}
+</style></head><body><div class="shell"><header class="head"><div><div class="sub">NACHES LEARNING HUB · ARCADE EDITION</div><div class="brand">🏁 LEARNING HIGHWAY</div></div><div class="pill">V2 · FOUR RETRO TRACKS</div></header><main class="layout"><div><section class="screen"><canvas id="road" width="960" height="600" aria-label="Retro racing game with math answer gates"></canvas><div id="overlay" class="overlay"><div id="menu" class="panel"><h1>MATH HIGHWAY</h1><p>Drive an 80s–90s arcade highway. Steer into the correct answer lane before the checkpoint reaches your car. Earn coins, master math, and unlock new rides!</p><div class="grid2"><label class="field">Math challenge<select id="mode"><option value="multiply">Multiplication</option><option value="divide">Division</option><option value="mixed">Multiply + Divide</option><option value="addsub">Addition + Subtraction</option><option value="fractions">Fractions & Decimals</option><option value="integers">Integers & Algebra Basics</option></select></label><label class="field">Difficulty<select id="difficulty"><option value="1">Cruise · Easy</option><option value="2" selected>City · Medium</option><option value="3">Highway · Hard</option><option value="4">Turbo · Expert</option></select></label></div><div class="track-preview" id="trackPreview">DOWNTOWN DUSK · City streets · spinouts cost points and time</div><div class="actions"><button class="btn" id="start">▶ START RACE</button><button class="btn alt" id="showGarage">🚘 GARAGE & UNLOCKS</button></div><p class="note">Keyboard: ← / → or A / D. On touchscreens, use the steering buttons. Each difficulty has its own track and crash rules. Keep your eyes on road hazards AND the answer gates.</p></div></div></section><div class="hud"><div id="prompt" class="status">Select a mode and start your engine.</div><div id="feedback" class="run-note"></div></div><div class="controls"><button id="left" class="control" aria-label="Steer left">◀ LEFT</button><button id="pause" class="btn alt">⏸ Pause</button><button id="right" class="control" aria-label="Steer right">RIGHT ▶</button></div></div><aside class="side"><section class="card"><h2>DRIVER DASHBOARD</h2><div class="stats"><div class="stat"><b id="score">0</b><small>Score</small></div><div class="stat"><b id="coins">0</b><small>Career coins</small></div><div class="stat"><b id="streak">0</b><small>Answer streak</small></div><div class="stat"><b id="accuracy">—</b><small>Accuracy</small></div><div class="stat"><b id="distance">0</b><small>Checkpoints</small></div><div class="stat"><b id="best">0</b><small>Personal best</small></div><div class="stat"><b id="health">∞</b><small>Vehicle health</small></div><div class="stat"><b id="velocity">0</b><small>Arcade speed</small></div></div><p class="note" id="rulesHint">12 math checkpoints · hazards between gates · difficulty-based crash rules.</p></section><section class="card"><h2>YOUR GARAGE</h2><div id="vehicles" class="garage"></div><div style="height:10px"></div><div class="badge">PAINT YOUR RIDE</div><div id="colors" class="colors" style="margin:9px 0"></div><div id="unlockNotice" class="note"></div></section><section class="card"><h2>DRIVING TIPS</h2><div class="help">• Read the math problem at the top of the road.<br>• Three answer gates appear in the distance.<br>• Steer with <kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd>.<br>• Avoid cones, traffic, and roadblocks between gates.<br>• Wrong answers trigger a slowdown, spinout, or damage depending on difficulty.<br>• Press <kbd>Space</kbd> to pause or continue.<br>• Progress saves automatically in this browser.</div></section></aside></main><footer class="footer">Original retro-inspired classroom game · Runs offline after download · No logins, ads, or external assets · Saves only on this device</footer></div><script>
 'use strict';
 const $=id=>document.getElementById(id);const canvas=$('road'),ctx=canvas.getContext('2d');const W=960,H=600;const KEY='learning_highway_v1';
 const VEHICLES=[{id:'coupe',name:'Starter Coupe',icon:'🚗',cost:0,desc:'Your first ride'},{id:'pickup',name:'Trail Pickup',icon:'🛻',cost:80,desc:'80 coins to unlock'},{id:'bike',name:'Street Bike',icon:'🏍️',cost:180,desc:'180 coins to unlock'},{id:'turbo',name:'Turbo GT',icon:'🏎️',cost:350,desc:'350 coins to unlock'},{id:'hover',name:'Neon Hover',icon:'🚀',cost:600,desc:'600 coins to unlock'}];
@@ -8,7 +10,13 @@ const PAINTS=['#fa4e61','#3898ed','#24c9a3','#ffd15b','#c58af7','#f5f9ff','#ff8a
 const DEFAULT={coins:0,best:0,completed:0,correct:0,total:0,vehicle:'coupe',color:0,unlocked:['coupe']};
 function load(){try{const p=JSON.parse(localStorage.getItem(KEY)||'null');if(!p||typeof p!=='object')return {...DEFAULT,unlocked:['coupe']};return {...DEFAULT,...p,unlocked:Array.isArray(p.unlocked)?p.unlocked:['coupe']}}catch{return {...DEFAULT,unlocked:['coupe']}}}
 let save=load();function persist(){try{localStorage.setItem(KEY,JSON.stringify(save))}catch{}}
-const g={playing:false,paused:false,finished:false,mode:'multiply',difficulty:2,progress:0,tick:0,speed:.105,carX:1,carTarget:1,question:null,score:0,streak:0,correct:0,total:0,completed:0,traffic:[],flash:0,flashGood:false,elapsed:0};
+const TRACKS={
+1:{name:'SUNNY COUNTRYSIDE',speed:.064,maxHealth:0,sky:['#417cc1','#8bc8ee','#fce1a2'],ground:['#71b05f','#81c36c'],road:['#666b74','#5d616d'],edge:['#f6d9a7','#fff5d7'],mark:'#fff6dc',desc:'Easy cruising · hazards cause a temporary slowdown',hazards:['cone']},
+2:{name:'DOWNTOWN DUSK',speed:.110,maxHealth:0,sky:['#343d79','#d07698','#f7b476'],ground:['#4d536e','#5f647c'],road:['#444659','#383d4e'],edge:['#fed18d','#fff0c2'],mark:'#fff5cb',desc:'City streets · spinouts cost points and time',hazards:['cone','traffic']},
+3:{name:'ALPINE PASS',speed:.185,maxHealth:3,sky:['#113963','#4a83b6','#a6d7e5'],ground:['#1d5e5f','#307b6f'],road:['#444f61','#384554'],edge:['#f3eee5','#f4aa66'],mark:'#f4faff',desc:'Mountain racing · 3 hit points; damage can end the race',hazards:['barrier','traffic','cone']},
+4:{name:'NEON NIGHT RUN',speed:.355,maxHealth:2,sky:['#080b29','#29245c','#633073'],ground:['#17173f','#201c4c'],road:['#25233e','#1e1f35'],edge:['#00e8ec','#fa59cc'],mark:'#b7fffd',desc:'Extreme pace · 2 hit points; two mistakes can end the run',hazards:['barrier','traffic','cone']}
+};
+const g={playing:false,paused:false,finished:false,mode:'multiply',difficulty:2,progress:0,tick:0,speed:.11,carX:1,carTarget:1,question:null,score:0,streak:0,correct:0,total:0,completed:0,traffic:[],flash:0,flashGood:false,elapsed:0,health:0,hazard:null,slowTimer:0,shake:0,collisionInvulnerability:0,lastResult:'',cause:''};
 const r=(a,b)=>a+Math.floor(Math.random()*(b-a+1));const pick=a=>a[r(0,a.length-1)];function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=r(0,i);[b[i],b[j]]=[b[j],b[i]]}return b}
 function question(){const d=g.difficulty;let mode=g.mode==='mixed'?pick(['multiply','divide']):g.mode;let n,formula; if(mode==='multiply'){let a=r(d>2?4:2,d===4?19:d===3?15:d===2?12:9),b=r(d>2?4:2,d===4?15:d===3?12:d===2?12:9);n=a*b;formula=`${a} × ${b} = ?`}
 else if(mode==='divide'){let b=r(d>2?3:2,d===4?16:d===3?13:12),a=r(2,d===4?16:d===3?14:12);n=a;formula=`${a*b} ÷ ${b} = ?`}
@@ -16,26 +24,223 @@ else if(mode==='addsub'){let a=r(d*5,20*d),b=r(3,14*d);const plus=Math.random()<
 else if(mode==='fractions'){let x=r(1,8),y=r(1,8),den=pick([2,4,5,10]);n=Math.round((x+y)/den*100)/100;formula=`${x}/${den} + ${y}/${den} = ? (decimal)`}
 else{if(Math.random()<.5){let a=r(-d*6,d*6),b=r(-d*5,d*5);n=a+b;formula=`${a} + (${b}) = ?`}else{let x=r(-d*8,d*8),a=r(-d*7,d*7);n=x;formula=`Solve: x ${a>=0?'+':'−'} ${Math.abs(a)} = ${x+a}`}}
 let offsets=shuffle([1,2,3,4,5,6,7,8]).slice(0,2),wrong=[];for(let i=0;i<2;i++){let shift=offsets[i]*(Math.random()<.5?-1:1);if(mode==='fractions')shift=shift/10;wrong.push(Number((n+shift).toFixed(2)))}if(wrong[0]===wrong[1]||wrong.includes(n))wrong=[n+1,n-1];const options=shuffle([n,...wrong]);return {formula,options,answer:n,correctLane:options.indexOf(n),mode};}
-function setupNext(){g.question=question();g.progress=0;g.speed=.073+g.difficulty*.014+Math.min(.025,g.completed*.0018);$('prompt').textContent=g.question.formula;$('feedback').textContent='';}
-function start(){g.mode=$('mode').value;g.difficulty=+$('difficulty').value;Object.assign(g,{playing:true,paused:false,finished:false,carX:1,carTarget:1,tick:0,progress:0,score:0,streak:0,correct:0,total:0,completed:0,elapsed:0});$('overlay').classList.add('hidden');setupNext();update();}
-function end(){g.playing=false;g.finished=true;save.completed++;save.best=Math.max(save.best,g.score);persist();showOverlay(`<h1>FINISH LINE!</h1><p>You cleared all 12 math checkpoints.</p><div class="stats"><div class="stat"><b>${g.score}</b><small>Race score</small></div><div class="stat"><b>${g.correct}/12</b><small>Correct gates</small></div><div class="stat"><b>${Math.round(g.correct/12*100)}%</b><small>Accuracy</small></div><div class="stat"><b>${save.coins}</b><small>Career coins</small></div></div><div class="actions"><button class="btn" id="again">▶ RACE AGAIN</button><button class="btn alt" id="menuBtn">⚙ SETTINGS</button></div>`);$('again').onclick=start;$('menuBtn').onclick=menu;renderGarage();}
+function setupNext(){
+ g.question=question();g.progress=0;
+ const track=TRACKS[g.difficulty];g.speed=track.speed*(1+Math.min(.16,g.completed*.013));
+ // Obstacles cross the player's position at 56% of the distance to the answer gate.
+ // They are always in one lane, leaving two safe lanes and enough time to recover for the gate.
+ const lane=r(0,2),kind=pick(track.hazards);
+ g.hazard={lane,kind,at:.56,hit:false,resolved:false};
+ $('prompt').textContent=g.question.formula;
+ $('feedback').textContent='';update();
+}
+function start(){
+ // Start buttons on the results overlay do not contain selectors: reuse the last selected setup.
+ if($('mode'))g.mode=$('mode').value;
+ if($('difficulty'))g.difficulty=+$('difficulty').value;
+ Object.assign(g,{playing:true,paused:false,finished:false,carX:1,carTarget:1,tick:0,progress:0,score:0,streak:0,correct:0,total:0,completed:0,elapsed:0,health:TRACKS[g.difficulty].maxHealth,slowTimer:0,collisionInvulnerability:0,shake:0,flash:0,cause:'',lastResult:''});
+ $('overlay').classList.add('hidden');$('pause').textContent='⏸ Pause';
+ setupNext();update();
+}
+function end(crashed=false){
+ g.playing=false;g.finished=true;if(!crashed)save.completed++;
+ save.best=Math.max(save.best,g.score);persist();
+ const title=crashed?'RACE OVER — CAR DISABLED':'FINISH LINE!';
+ const info=crashed?`Your ${TRACKS[g.difficulty].name.toLowerCase()} run ended after ${g.completed} checkpoints. ${g.lastResult} You keep your earned coins and unlocked rides. Try again!`:'You cleared all 12 math checkpoints and made it to the finish.';
+ showOverlay(`<h1>${title}</h1><p>${info}</p><div class="stats"><div class="stat"><b>${g.score}</b><small>Race score</small></div><div class="stat"><b>${g.correct}/${g.total}</b><small>Correct gates</small></div><div class="stat"><b>${g.total?Math.round(g.correct/g.total*100):0}%</b><small>Accuracy</small></div><div class="stat"><b>${save.coins}</b><small>Career coins</small></div></div><div class="actions"><button class="btn" id="again">▶ RACE AGAIN</button><button class="btn alt" id="menuBtn">⚙ SETTINGS</button></div>`);
+ $('again').onclick=start;$('menuBtn').onclick=menu;update();
+}
 function showOverlay(html){$('menu').innerHTML=html;$('overlay').classList.remove('hidden')}
-function menu(){g.playing=false;g.paused=false;showOverlay(`<h1>MATH HIGHWAY</h1><p>Choose a challenge, steer through the correct answer gates, and earn new rides.</p><div class="grid2"><label class="field">Math challenge<select id="mode">${[['multiply','Multiplication'],['divide','Division'],['mixed','Multiply + Divide'],['addsub','Addition + Subtraction'],['fractions','Fractions & Decimals'],['integers','Integers & Algebra Basics']].map(([v,t])=>`<option value="${v}" ${g.mode===v?'selected':''}>${t}</option>`).join('')}</select></label><label class="field">Difficulty<select id="difficulty">${[['1','Cruise · Easy'],['2','City · Medium'],['3','Highway · Hard'],['4','Turbo · Expert']].map(([v,t])=>`<option value="${v}" ${g.difficulty===+v?'selected':''}>${t}</option>`).join('')}</select></label></div><div class="actions"><button id="start" class="btn">▶ START RACE</button><button id="showGarage" class="btn alt">🚘 GARAGE & UNLOCKS</button></div>`);$('start').onclick=start;$('showGarage').onclick=()=>{document.querySelector('.side').scrollIntoView({behavior:'smooth'});};}
-function togglePause(){if(!g.playing)return;g.paused=!g.paused;if(g.paused){showOverlay(`<h1>PAUSED</h1><p>Your current run is waiting.</p><div class="actions"><button class="btn" id="resume">▶ RESUME</button><button class="btn alt" id="quit">END RACE</button></div>`);$('resume').onclick=togglePause;$('quit').onclick=menu;}else $('overlay').classList.add('hidden');$('pause').textContent=g.paused?'▶ Resume':'⏸ Pause';}
+function menu(){g.playing=false;g.paused=false;$('pause').textContent='⏸ Pause';showOverlay(`<h1>MATH HIGHWAY</h1><p>Choose your road, dodge hazards, solve math at each gate, and earn coins for your garage.</p><div class="grid2"><label class="field">Math challenge<select id="mode">${[['multiply','Multiplication'],['divide','Division'],['mixed','Multiply + Divide'],['addsub','Addition + Subtraction'],['fractions','Fractions & Decimals'],['integers','Integers & Algebra Basics']].map(([v,t])=>`<option value="${v}" ${g.mode===v?'selected':''}>${t}</option>`).join('')}</select></label><label class="field">Difficulty<select id="difficulty">${[['1','Cruise · Easy'],['2','City · Medium'],['3','Highway · Hard'],['4','Turbo · Expert']].map(([v,t])=>`<option value="${v}" ${g.difficulty===+v?'selected':''}>${t}</option>`).join('')}</select></label></div><div class="track-preview" id="trackPreview">${TRACKS[g.difficulty].name} · ${TRACKS[g.difficulty].desc}</div><div class="actions"><button id="start" class="btn">▶ START RACE</button><button id="showGarage" class="btn alt">🚘 GARAGE & UNLOCKS</button></div>`);$('start').onclick=start;$('showGarage').onclick=()=>{document.querySelector('.side').scrollIntoView({behavior:'smooth'});};}
+function togglePause(){if(!g.playing)return;g.paused=!g.paused;if(g.paused){showOverlay(`<h1>PAUSED</h1><p>Your current run is waiting.</p><div class="actions"><button class="btn" id="resume">▶ RESUME</button><button class="btn alt" id="quit">END RACE</button></div>`);$('resume').onclick=togglePause;$('quit').onclick=()=>{g.paused=false;$('pause').textContent='⏸ Pause';menu();};}else $('overlay').classList.add('hidden');$('pause').textContent=g.paused?'▶ Resume':'⏸ Pause';}
 function move(dir){if(!g.playing||g.paused)return;g.carTarget=Math.max(0,Math.min(2,g.carTarget+dir));}
-function crossing(){let q=g.question,good=Math.round(g.carX)===q.correctLane;g.total++;save.total++;if(good){g.correct++;save.correct++;g.streak++;let pts=100*g.difficulty+25*Math.min(g.streak,10);g.score+=pts;save.coins+=3*g.difficulty+Math.min(5,g.streak);$('feedback').textContent=`✓ Correct! +${pts} pts · +${3*g.difficulty+Math.min(5,g.streak)} coins`; }else{g.streak=0;$('feedback').textContent=`✕ Correct answer: ${q.answer} · Try the next checkpoint`; }g.flash=1;g.flashGood=good;g.completed++;save.best=Math.max(save.best,g.score);persist();update();if(g.completed>=12){end();return;}setupNext();$('feedback').textContent=good?'✓ Great driving!':'✕ Review that answer and keep going.';}
-function update(){ $('score').textContent=g.score.toLocaleString();$('coins').textContent=save.coins.toLocaleString();$('streak').textContent=g.streak;$('accuracy').textContent=g.total?`${Math.round(g.correct/g.total*100)}%`:'—';$('distance').textContent=`${g.completed}/12`;$('best').textContent=save.best.toLocaleString();renderGarage();}
+function crash(kind,detail){
+ g.streak=0;g.flash=1;g.flashGood=false;g.shake=1.1;
+ if(g.difficulty===1){g.slowTimer=1.6;g.lastResult=`${detail} — slow down and recover!`;}
+ else if(g.difficulty===2){g.slowTimer=2.3;g.score=Math.max(0,g.score-65);g.lastResult=`${detail} — spinout! −65 points`;}
+ else{g.health=Math.max(0,g.health-1);g.slowTimer=1.3;g.lastResult=`${detail} — vehicle damage! ${g.health} HP left`;}
+ $('feedback').textContent=g.lastResult;persist();update();
+ if(g.difficulty>=3&&g.health===0){g.cause=kind;end(true);return true;}
+ return false;
+}
+function checkHazard(){
+ if(!g.hazard||g.hazard.resolved||g.progress<g.hazard.at)return;
+ g.hazard.resolved=true;
+ if(Math.abs(g.carX-g.hazard.lane)<.41){g.hazard.hit=true;crash('obstacle','CRASH! You hit the '+({cone:'traffic cones',barrier:'road barrier',traffic:'traffic vehicle'}[g.hazard.kind]));}
+ else{$('feedback').textContent='✓ Hazard avoided! Stay focused on the answer gates.';}
+}
+function crossing(){
+ const q=g.question,good=Math.abs(g.carX-q.correctLane)<.42;
+ g.total++;save.total++;
+ if(good){g.correct++;save.correct++;g.streak++;const pts=100*g.difficulty+25*Math.min(g.streak,10);g.score+=pts;save.coins+=3*g.difficulty+Math.min(5,g.streak);g.lastResult=`✓ Correct! +${pts} points and coins`;
+ }else{g.lastResult=`✕ Answer: ${q.answer}. Wrong gate!`;if(crash('answer',g.lastResult))return;}
+ g.flash=1;g.flashGood=good;g.completed++;save.best=Math.max(save.best,g.score);persist();
+ if(g.completed>=12){end();return;}
+ setupNext();$('feedback').textContent=g.lastResult;update();
+}
+function update(){
+ $('score').textContent=g.score.toLocaleString();$('coins').textContent=save.coins.toLocaleString();$('streak').textContent=g.streak;
+ $('accuracy').textContent=g.total?`${Math.round(g.correct/g.total*100)}%`:'—';$('distance').textContent=`${g.completed}/12`;
+ $('best').textContent=save.best.toLocaleString();$('health').textContent=g.difficulty<=2?'∞':('♥'.repeat(g.health)+'♡'.repeat(TRACKS[g.difficulty].maxHealth-g.health));
+ $('velocity').textContent=Math.round(g.speed*820*(g.slowTimer>0?.44:1))+' MPH';
+ $('rulesHint').textContent=TRACKS[g.difficulty].name+' · '+TRACKS[g.difficulty].desc+'.';
+ renderGarage();
+}
 function renderGarage(){let owned=new Set(save.unlocked);$('vehicles').innerHTML=VEHICLES.map(v=>{let have=owned.has(v.id),selected=save.vehicle===v.id;return `<button class="vehicle ${selected?'active':''} ${have?'':'locked'}" data-car="${v.id}"><span class="caricon">${v.icon}</span><span class="vinfo"><b>${v.name}</b><small>${have?(selected?'Selected · ready to race':'Unlocked · select'):v.cost+' coins to unlock'}</small></span><span>${selected?'✓':have?'→':'🔒'}</span></button>`}).join('');$('colors').innerHTML=PAINTS.map((c,i)=>`<button class="swatch ${i===save.color?'active':''}" data-paint="${i}" style="background:${c}" aria-label="Paint color ${i+1}" title="Select paint color ${i+1}"></button>`).join('');const upcoming=VEHICLES.find(v=>!owned.has(v.id));$('unlockNotice').textContent=upcoming?`Next ride: ${upcoming.name} · ${Math.max(0,upcoming.cost-save.coins)} more coins needed.`:'All rides unlocked!';}
 $('vehicles').addEventListener('click',e=>{let btn=e.target.closest('[data-car]');if(!btn)return;let v=VEHICLES.find(x=>x.id===btn.dataset.car);if(save.unlocked.includes(v.id)){save.vehicle=v.id}else if(save.coins>=v.cost){save.coins-=v.cost;save.unlocked.push(v.id);save.vehicle=v.id;}else{$('unlockNotice').textContent=`Need ${v.cost-save.coins} more coins to unlock ${v.name}.`;return;}persist();update();});$('colors').addEventListener('click',e=>{let el=e.target.closest('[data-paint]');if(!el)return;save.color=+el.dataset.paint;persist();renderGarage();});
 const c=(v,a,b)=>Math.max(a,Math.min(b,v));function poly(points,color){ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(points[0][0],points[0][1]);points.slice(1).forEach(p=>ctx.lineTo(p[0],p[1]));ctx.closePath();ctx.fill()}
 function drawCar(x,y,scale){const color=PAINTS[save.color];ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ctx.fillStyle='#111a2c';ctx.fillRect(-61,-4,21,22);ctx.fillRect(40,-4,21,22);poly([[-45,8],[45,8],[38,-62],[19,-90],[-19,-90],[-38,-62]],'#111828');poly([[-40,3],[40,3],[34,-58],[16,-82],[-16,-82],[-34,-58]],color);poly([[-25,-49],[25,-49],[15,-75],[-15,-75]],'#78d5e5');ctx.fillStyle='#ffe58c';ctx.fillRect(-35,-13,15,9);ctx.fillRect(20,-13,15,9);ctx.fillStyle='#122638';ctx.fillRect(-19,-5,38,8);ctx.fillStyle='#f7fbff';ctx.font='bold 12px monospace';ctx.textAlign='center';ctx.fillText(VEHICLES.find(v=>v.id===save.vehicle)?.name?.split(' ')[0].toUpperCase()||'RACER',0,-27);ctx.restore()}
-function render(t){let dt=Math.min(.04,(t-(render.last||t))/1000);render.last=t;if(g.playing&&!g.paused){g.tick+=dt*40;g.elapsed+=dt;g.carX+=(g.carTarget-g.carX)*Math.min(1,dt*11);g.progress+=dt*g.speed;if(g.progress>=1)crossing();g.flash=Math.max(0,g.flash-dt*2.5)}ctx.clearRect(0,0,W,H);let sunY=166;const sky=ctx.createLinearGradient(0,0,0,370);sky.addColorStop(0,'#132d63');sky.addColorStop(.55,'#dd7198');sky.addColorStop(1,'#f7bc73');ctx.fillStyle=sky;ctx.fillRect(0,0,W,360);ctx.fillStyle='#ffd18b';ctx.beginPath();ctx.arc(480,155,65,0,Math.PI*2);ctx.fill();ctx.fillStyle='#d99489';for(let i=0;i<6;i++)ctx.fillRect(412,174+i*10,136,4+i);const hill=t=>Array.from({length:25},(_,i)=>[i*42,235+Math.sin(i*.8+t)*25]);poly([[0,380],...hill(0),[W,380]],'#60517d');poly([[0,400],...hill(1.2).map(p=>[p[0],p[1]+40]),[W,400]],'#294968');ctx.fillStyle='#38674f';ctx.fillRect(0,296,W,H-296);
-// SNES-inspired perspective road, rendered from far horizon toward player.
-const horizon=285,base=H+65;function zY(z){return horizon+Math.pow(z,1.9)*(base-horizon)}function roadHalf(z){return 42+z*620}function curve(z){return Math.sin(g.tick*.009+z*3.1)*45*z*z}function roadMid(z){return W/2+curve(z)}
-for(let i=0;i<50;i++){let z0=i/50,z1=(i+1)/50,y0=zY(z0),y1=zY(z1),m0=roadMid(z0),m1=roadMid(z1),h0=roadHalf(z0),h1=roadHalf(z1);const grass=(Math.floor((i+g.tick*.6)/3)%2===0)?'#367951':'#439060';ctx.fillStyle=grass;ctx.fillRect(0,y0,W,y1-y0+2);poly([[m0-h0-12*z0,y0],[m0+h0+12*z0,y0],[m1+h1+12*z1,y1],[m1-h1-12*z1,y1]],Math.floor((i+g.tick*.7)/4)%2?'#ffe8c4':'#f5ac8b');poly([[m0-h0,y0],[m0+h0,y0],[m1+h1,y1],[m1-h1,y1]],Math.floor((i+g.tick*.5)/6)%2?'#434d64':'#39465d');if((i+Math.floor(g.tick))%10<5){for(let lane of [1,2]){let x0=m0-h0+lane*2*h0/3,x1=m1-h1+lane*2*h1/3;poly([[x0-2*z0,y0],[x0+2*z0,y0],[x1+3*z1,y1],[x1-3*z1,y1]],'#f6e7aa')}}}
-// roadside pixel trees and kilometer lights
-for(let side of [-1,1])for(let j=0;j<7;j++){let z=((j/7+g.tick*.008)%1),y=zY(z),half=roadHalf(z),x=roadMid(z)+side*(half+34+z*76),s=.25+z*2.2;ctx.fillStyle='#654d42';ctx.fillRect(x-4*s,y-37*s,8*s,42*s);poly([[x-29*s,y-23*s],[x,y-102*s],[x+29*s,y-23*s]],'#164a46');poly([[x-23*s,y-50*s],[x,y-120*s],[x+23*s,y-50*s]],'#267969')}
-if(g.playing&&g.question){let z=.09+Math.pow(c(g.progress,0,1),1.7)*.76,y=zY(z),half=roadHalf(z),mid=roadMid(z),sz=c(.35+z*1.3,.45,1.7);for(let i=0;i<3;i++){let x=mid+(i-1)*(2*half/3);let bw=65*sz,bh=42*sz;ctx.fillStyle='#244f73';ctx.fillRect(x-bw/2,y-bh,bw,bh);ctx.strokeStyle='#fff0b4';ctx.lineWidth=3*sz;ctx.strokeRect(x-bw/2,y-bh,bw,bh);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`bold ${Math.round(24*sz)}px system-ui`;ctx.fillText(String(g.question.options[i]),x,y-bh/2);ctx.fillStyle='#fff6';ctx.fillRect(x-bw/2,y,bw,4*sz)}ctx.fillStyle='#102439d9';ctx.fillRect(270,17,420,82);ctx.strokeStyle='#ffd88d';ctx.lineWidth=3;ctx.strokeRect(270,17,420,82);ctx.font='bold 18px monospace';ctx.fillStyle='#fff3b4';ctx.textAlign='center';ctx.fillText(`CHECKPOINT ${g.completed+1} / 12`,W/2,40);ctx.font='bold 35px monospace';ctx.fillStyle='#fff';ctx.fillText(g.question.formula,W/2,76)}
-let carx=roadMid(.89)+(g.carX-1)*(2*roadHalf(.89)/3);drawCar(carx,568,1.08);if(g.flash){ctx.fillStyle=g.flashGood?`rgba(95,255,174,${g.flash*.23})`:`rgba(255,80,100,${g.flash*.27})`;ctx.fillRect(0,0,W,H)}ctx.fillStyle='#0d2435ca';ctx.fillRect(10,11,158,50);ctx.fillStyle='#ffdda0';ctx.font='bold 17px monospace';ctx.textAlign='left';ctx.fillText(`${g.playing?(g.paused?'PAUSED':'RACING'):'READY'}`,20,32);ctx.fillStyle='#fff';ctx.font='14px monospace';ctx.fillText(`${g.score} PTS`,20,52);requestAnimationFrame(render)}
-window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' ','a','d','A','D'].includes(e.key))e.preventDefault();if(['ArrowLeft','a','A'].includes(e.key)&&!e.repeat)move(-1);if(['ArrowRight','d','D'].includes(e.key)&&!e.repeat)move(1);if(e.key===' '&&!e.repeat)togglePause()});$('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('pause').onclick=togglePause;$('start').onclick=start;$('showGarage').onclick=()=>document.querySelector('.side').scrollIntoView({behavior:'smooth'});update();requestAnimationFrame(render);
+// ===== V2 RETRO RACING ENGINE =====
+function poly2(points,fill,stroke){poly(points,fill);if(stroke){ctx.beginPath();ctx.moveTo(points[0][0],points[0][1]);points.slice(1).forEach(p=>ctx.lineTo(p[0],p[1]));ctx.closePath();ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.stroke();}}
+function block(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(Math.round(x),Math.round(y),Math.ceil(w),Math.ceil(h))}
+function label(text,x,y,size,color='#fff'){ctx.fillStyle=color;ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=`900 ${size}px monospace`;ctx.fillText(text,x,y)}
+function retroMountains(baseY,tint,phase,amp){let pts=[[0,H]];for(let i=0;i<=32;i++){let x=i*32,y=baseY+Math.sin(i*.56+phase)*amp+Math.sin(i*1.3+phase)*amp*.4;pts.push([x,y]);}pts.push([W,H]);poly(pts,tint)}
+function drawSky(theme){
+ const pal=theme.sky,gradient=ctx.createLinearGradient(0,0,0,350);
+ gradient.addColorStop(0,pal[0]);gradient.addColorStop(.58,pal[1]);gradient.addColorStop(1,pal[2]);ctx.fillStyle=gradient;ctx.fillRect(0,0,W,350);
+ if(g.difficulty===1){
+  ctx.fillStyle='#fff0ac';ctx.beginPath();ctx.arc(745,96,48,0,Math.PI*2);ctx.fill();
+  for(let i=0;i<5;i++){let x=100+i*193,y=48+(i%3)*45;block(x,y+18,96,21,'#e9f5f6');block(x+20,y,56,35,'#f1faf8')}
+  retroMountains(280,'#84aabd',.2,29);retroMountains(319,'#618783',1.6,18);
+ }else if(g.difficulty===2){
+  ctx.fillStyle='#ffce9a';ctx.beginPath();ctx.arc(710,137,48,0,Math.PI*2);ctx.fill();
+  for(let i=0;i<26;i++){const x=i*42-5,h=56+Math.abs(Math.sin(i*2.21))*110;
+   block(x,300-h,38,h,'#303455');for(let wy=0;wy<h-15;wy+=17)for(let wx=8;wx<32;wx+=12)if((i+wx+wy)%3)block(x+wx,300-h+wy+10,4,6,'#f7c989');}
+ }else if(g.difficulty===3){
+  ctx.fillStyle='#e9f4f8';ctx.beginPath();ctx.arc(738,85,33,0,Math.PI*2);ctx.fill();
+  poly([[0,315],[110,155],[180,252],[282,102],[402,275],[522,140],[660,270],[770,135],[960,322],[W,600],[0,600]],'#496a8d');
+  poly([[225,177],[282,102],[340,201],[306,184],[282,144],[258,182]],'#e3eefa');
+  poly([[720,204],[770,135],[815,210],[790,199],[770,173],[752,200]],'#e3eefa');
+  retroMountains(310,'#315c73',.8,35);
+ }else{
+  for(let i=0;i<95;i++){let x=(i*281+71)%W,y=(i*137+31)%240;block(x,y,1+(i%3===0),1+(i%3===0),i%3===0?'#e5fcff':'#889ddd')}
+  ctx.strokeStyle='#ee71d6';ctx.lineWidth=3;ctx.beginPath();ctx.arc(720,119,57,0,Math.PI*2);ctx.stroke();
+  for(let i=0;i<22;i++){let x=i*47,h=55+Math.abs(Math.sin(i*1.67))*88;block(x,300-h,43,h,'#151534');
+   for(let j=0;j<4;j++){let y=300-h+j*23+12;block(x+9,y,6,7,i%2?'#39caff':'#ff79c5');block(x+26,y,6,7,'#9bf2f5');}}
+ }
+}
+function perspective(z){const horizon=288,base=650;return {y:horizon+Math.pow(z,1.92)*(base-horizon),half:41+z*600,mid:W/2+Math.sin(g.tick*(g.difficulty===4?.025:.01)+z*2.6)*36*z*z}}
+function laneAt(z,lane){let p=perspective(z);return p.mid+(lane-1)*(2*p.half/3)}
+function roadsideItem(x,y,z,i){
+ const s=.25+z*2.05;
+ if(g.difficulty===1){
+  block(x-5*s,y-31*s,10*s,39*s,'#7b583d');poly([[x-23*s,y-26*s],[x,y-99*s],[x+23*s,y-26*s]],'#317a48');
+  poly([[x-19*s,y-48*s],[x,y-120*s],[x+19*s,y-48*s]],'#4aa758');
+  if(i%3===0){block(x+15*s,y-14*s,10*s,12*s,'#eabc4f');block(x+25*s,y-19*s,10*s,17*s,'#8cbf3c')}
+ }else if(g.difficulty===2){
+  block(x-10*s,y-82*s,21*s,86*s,'#222c4c');block(x-5*s,y-72*s,6*s,10*s,'#ffd07e');block(x+2*s,y-54*s,5*s,10*s,'#ffd07e');
+  if(i%2===0){block(x+12*s,y-99*s,4*s,102*s,'#171c32');block(x+13*s,y-99*s,23*s,7*s,'#ffd17e');}
+ }else if(g.difficulty===3){
+  block(x-6*s,y-30*s,11*s,38*s,'#554b47');poly([[x-31*s,y-22*s],[x,y-123*s],[x+31*s,y-22*s]],'#0e544f');
+  poly([[x-22*s,y-58*s],[x,y-138*s],[x+22*s,y-58*s]],'#277c68');
+ }else{
+  block(x-3*s,y-83*s,6*s,87*s,'#244c70');block(x-16*s,y-88*s,32*s,9*s,i%2?'#ff4acc':'#4af5ff');
+  block(x-5*s,y-93*s,10*s,7*s,'#f9fcff');
+ }
+}
+function drawRoad(theme){
+ const scroll=g.tick*(g.difficulty===4?2.1:g.difficulty===3?1.7:g.difficulty===2?1.1:.8);
+ block(0,288,W,H-288,theme.ground[0]);
+ for(let i=0;i<72;i++){
+  const z0=i/72,z1=(i+1)/72,a=perspective(z0),b=perspective(z1),phase=Math.floor(i+scroll);
+  block(0,a.y,W,b.y-a.y+2,(Math.floor((phase)/5)%2)?theme.ground[0]:theme.ground[1]);
+  const e0=a.half+11*z0,e1=b.half+11*z1;
+  poly([[a.mid-e0,a.y],[a.mid+e0,a.y],[b.mid+e1,b.y],[b.mid-e1,b.y]],phase%8<4?theme.edge[0]:theme.edge[1]);
+  poly([[a.mid-a.half,a.y],[a.mid+a.half,a.y],[b.mid+b.half,b.y],[b.mid-b.half,b.y]],phase%10<5?theme.road[0]:theme.road[1]);
+  if(phase%13<8){for(let lane=1;lane<=2;lane++){
+   const x0=a.mid-a.half+(lane*2*a.half/3),x1=b.mid-b.half+(lane*2*b.half/3),width=z1*3+1;
+   poly([[x0-width,a.y],[x0+width,a.y],[x1+width,b.y],[x1-width,b.y]],theme.mark);
+  }}
+ }
+ for(let side of [-1,1])for(let j=0;j<11;j++){
+  let z=(j/11+g.tick*(g.difficulty===4?.047:g.difficulty===3?.027:g.difficulty===2?.017:.010))%1;
+  if(z<.06)continue;const pos=perspective(z),x=pos.mid+side*(pos.half+32+z*50);
+  roadsideItem(x,pos.y,z,j);
+ }
+ if(g.difficulty===4)for(let i=0;i<14;i++){
+  let z=((i/14+g.tick*.055)%1);if(z<.1)continue;let p=perspective(z);
+  ctx.strokeStyle=i%2?'#71ebff99':'#fa71df88';ctx.lineWidth=2+z*2;
+  ctx.beginPath();ctx.moveTo(p.mid-p.half-25-z*90,p.y);ctx.lineTo(p.mid-p.half-45-z*150,p.y+14+z*34);ctx.stroke();
+ }
+}
+function drawHazard(){
+ if(!g.hazard||g.hazard.resolved||!g.playing)return;
+ const h=g.hazard;
+ // Obstacle grows before the gate and reaches the car lane at progress .56.
+ const z=Math.min(.95,.08+Math.pow(Math.max(0,g.progress/h.at),1.75)*.77);
+ const p=perspective(z),x=laneAt(z,h.lane),y=p.y,s=.45+z*1.45;
+ ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+ block(-38,0,76,8,'#050a1599');
+ if(h.kind==='cone'){
+  for(let j of [-28,0,28]){poly([[j-13,-2],[j+13,-2],[j,-48]],'#f57d28');block(j-8,-26,16,8,'#fff6cb');block(j-16,-2,32,7,'#37475b')}
+ }else if(h.kind==='barrier'){
+  block(-58,-55,116,43,'#eaece5');block(-61,-12,122,11,'#33364a');
+  for(let j=-52;j<58;j+=32)poly([[j,-13],[j+13,-13],[j+38,-55],[j+25,-55]],'#f78a30');
+  block(-47,0,12,14,'#343348');block(34,0,12,14,'#343348');
+ }else{
+  block(-49,-63,98,61,'#3c5274');block(-43,-79,86,45,'#f1a43d');block(-30,-73,60,23,'#a9e4f0');
+  block(-51,-23,24,24,'#0a1b2e');block(27,-23,24,24,'#0a1b2e');
+  block(-43,-27,20,11,'#fff5a3');block(23,-27,20,11,'#fff5a3');
+ }
+ ctx.restore();
+ if(g.progress>.12&&g.progress<.56){
+  const names=['LEFT','CENTER','RIGHT'];
+  label('HAZARD — '+names[h.lane]+' LANE',W/2,129,19,'#ffdf88');
+ }
+}
+function drawGates(){
+ if(!g.playing||!g.question)return;
+ const z=.095+Math.pow(c(g.progress,0,1),1.65)*.74,p=perspective(z),y=p.y;
+ const sz=c(.45+z*1.35,.48,1.7);
+ for(let lane=0;lane<3;lane++){
+  const x=laneAt(z,lane),bw=74*sz,bh=55*sz;
+  block(x-bw/2-5*sz,y-bh-5*sz,bw+10*sz,bh+9*sz,'#0a1a32');
+  block(x-bw/2,y-bh,bw,bh,g.difficulty===4?'#2a2d60':'#244f73');
+  ctx.strokeStyle=g.difficulty===4?'#40f9e3':'#ffe19b';ctx.lineWidth=3*sz;ctx.strokeRect(x-bw/2,y-bh,bw,bh);
+  label(String(g.question.options[lane]),x,y-bh/2,Math.round(24*sz));
+  block(x-bw/2,y,bw,3*sz,'#ffffffaa');
+ }
+ block(242,10,476,94,'#10213be9');ctx.strokeStyle=g.difficulty===4?'#59edff':'#ffda84';ctx.lineWidth=3;ctx.strokeRect(242,10,476,94);
+ label('CHECKPOINT '+(g.completed+1)+' / 12 · '+TRACKS[g.difficulty].name,W/2,35,15,'#ffe5a5');
+ label(g.question.formula,W/2,74,33,'#ffffff');
+}
+function drawVFX(){
+ if(g.difficulty>=3&&g.playing&&!g.paused){
+  const count=g.difficulty===4?27:8;
+  for(let i=0;i<count;i++){
+   let x=(i*181+Math.floor(g.tick*5))%W,y=(i*109+Math.floor(g.tick*19))%H;
+   const a=g.difficulty===4?.45:.16;ctx.strokeStyle=`rgba(223,244,255,${a})`;ctx.lineWidth=i%3===0?3:1;
+   ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+(x-W/2)*.09,y+15+(i%3)*15);ctx.stroke();
+  }
+ }
+ if(g.shake>0){ctx.fillStyle=`rgba(255,80,80,${g.shake*.10})`;ctx.fillRect(0,0,W,H)}
+ if(g.flash>0){ctx.fillStyle=g.flashGood?`rgba(70,255,165,${g.flash*.19})`:`rgba(255,63,87,${g.flash*.22})`;ctx.fillRect(0,0,W,H)}
+}
+function render(t){
+ const dt=Math.min(.046,Math.max(0,(t-(render.last||t))/1000));render.last=t;
+ if(g.playing&&!g.paused){
+  let pace=g.slowTimer>0?.44:1;
+  g.tick+=dt*(g.difficulty===4?138:g.difficulty===3?90:g.difficulty===2?48:29)*pace;
+  g.elapsed+=dt;g.carX+=(g.carTarget-g.carX)*Math.min(1,dt*(g.difficulty===4?18:13));
+  let prev=g.progress;g.progress+=dt*g.speed*pace;
+  if(g.hazard&&!g.hazard.resolved&&prev<g.hazard.at&&g.progress>=g.hazard.at)checkHazard();
+  if(g.playing&&g.progress>=1)crossing();
+  g.slowTimer=Math.max(0,g.slowTimer-dt);g.flash=Math.max(0,g.flash-dt*2.3);g.shake=Math.max(0,g.shake-dt*1.5);
+  $('velocity').textContent=Math.round(g.speed*820*(g.slowTimer>0?.44:1))+' MPH';
+ }
+ ctx.clearRect(0,0,W,H);
+ const track=TRACKS[g.difficulty],oldW=ctx.lineWidth;
+ ctx.save();if(g.shake>0&&g.playing)ctx.translate(Math.sin(g.elapsed*65)*g.shake*8,Math.cos(g.elapsed*76)*g.shake*5);
+ drawSky(track);drawRoad(track);
+ // Respect pseudo-3D depth so distant obstacles do not cover readable answer text.
+ const hz=g.hazard&&!g.hazard.resolved&&g.playing?Math.min(.95,.08+Math.pow(Math.max(0,g.progress/g.hazard.at),1.75)*.77):0;
+ const gz=.095+Math.pow(c(g.progress,0,1),1.65)*.74;
+ if(hz&&hz<gz){drawHazard();drawGates();}else{drawGates();drawHazard();}
+ const carX=laneAt(.9,g.carX);ctx.save();if(g.difficulty===2&&g.shake>0){ctx.translate(carX,565);ctx.rotate(Math.sin(g.elapsed*23)*g.shake*.24);drawCar(0,0,1.08);}else drawCar(carX,565,1.08);ctx.restore();ctx.restore();drawVFX();
+ block(9,11,187,63,'#10213be6');label(g.playing?(g.paused?'PAUSED':'RACING'):'READY',99,30,19,'#ffda8a');label(g.score+' PTS',99,54,15);
+ block(W-220,11,211,63,'#10213be6');label(Math.round(g.speed*820*(g.slowTimer>0?.44:1))+' MPH',W-114,29,23,g.difficulty===4?'#65fff4':'#ffffff');
+ label(g.difficulty===1?'SLOWDOWN ONLY':g.difficulty===2?'SPINOUT PENALTY':('♥'.repeat(g.health)+'♡'.repeat(TRACKS[g.difficulty].maxHealth-g.health)),W-114,56,15,'#ff9a9d');
+ requestAnimationFrame(render);
+}
+window.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight',' ','a','d','A','D'].includes(e.key))e.preventDefault();if(['ArrowLeft','a','A'].includes(e.key)&&!e.repeat)move(-1);if(['ArrowRight','d','D'].includes(e.key)&&!e.repeat)move(1);if(e.key===' '&&!e.repeat)togglePause()});$('left').onclick=()=>move(-1);$('right').onclick=()=>move(1);$('pause').onclick=togglePause;$('start').onclick=start;$('showGarage').onclick=()=>document.querySelector('.side').scrollIntoView({behavior:'smooth'});$('difficulty').addEventListener('change',e=>{$('trackPreview').textContent=TRACKS[+e.target.value].name+' · '+TRACKS[+e.target.value].desc});update();requestAnimationFrame(render);
 </script></body></html>
