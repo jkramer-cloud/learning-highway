@@ -141,105 +141,137 @@ function shopMarkup(items,owned,selected,type){
  }).join('');
 }
 function previewGarage(){
- const cv=$('garagePreview');if(!cv)return;const p=cv.getContext('2d');const w=cv.width,h=cv.height;
- p.clearRect(0,0,w,h);p.imageSmoothingEnabled=false;
- const bg=p.createLinearGradient(0,0,w,h);bg.addColorStop(0,'#295778');bg.addColorStop(.57,'#182f4c');bg.addColorStop(1,'#101f37');p.fillStyle=bg;p.fillRect(0,0,w,h);
- // garage floor and glow grid
- const floor=p.createLinearGradient(0,190,0,390);floor.addColorStop(0,'#304b63');floor.addColorStop(1,'#0b1a2d');p.fillStyle=floor;p.fillRect(0,190,w,200);
- p.strokeStyle='#55789277';p.lineWidth=2;for(let i=0;i<14;i++){let y=202+i*i*1.2;p.beginPath();p.moveTo(0,y);p.lineTo(w,y);p.stroke();}
- for(let i=-5;i<16;i++){p.beginPath();p.moveTo(335,176);p.lineTo(i*74,390);p.stroke();}
- p.fillStyle='#0b1e30';p.fillRect(0,0,w,41);p.fillStyle='#a8d8ea';p.font='bold 17px monospace';p.fillText('CUSTOM VEHICLE · 3/4 GARAGE VIEW',18,27);
- p.textAlign='right';p.fillStyle='#ffe49d';p.fillText('◀ BODY  /  WRAP  /  WHEELS  /  FX',w-18,27);p.textAlign='left';
- const base=PAINTS[save.color];const wrap=byId(WRAPS,save.wrap);const wheels=byId(WHEELS,save.wheel);const fx=byId(EFFECTS,save.effect);const vehicle=save.vehicle;
- const fillPoly=(pts,color,stroke='#152233',line=3)=>{p.beginPath();p.moveTo(pts[0][0],pts[0][1]);pts.slice(1).forEach(pt=>p.lineTo(pt[0],pt[1]));p.closePath();p.fillStyle=color;p.fill();if(stroke){p.strokeStyle=stroke;p.lineWidth=line;p.stroke();}};
- const shade=(hex,amt)=>{const v=parseInt(hex.slice(1),16),rr=c((v>>16)+amt,0,255),gg=c(((v>>8)&255)+amt,0,255),bb=c((v&255)+amt,0,255);return `rgb(${rr},${gg},${bb})`;};
- p.fillStyle='#000b19a5';p.beginPath();p.ellipse(370,289,235,31,-.08,0,Math.PI*2);p.fill();
- if(vehicle==='bike'){
-   p.strokeStyle='#090f1d';p.lineWidth=18;for(const [x,y] of [[273,262],[486,214]]){p.beginPath();p.ellipse(x,y,35,49,.3,0,Math.PI*2);p.stroke();p.strokeStyle=wheels.color;p.lineWidth=8;p.beginPath();p.ellipse(x,y,19,30,.3,0,Math.PI*2);p.stroke();p.strokeStyle='#090f1d';p.lineWidth=18;}
-   p.strokeStyle='#151e2d';p.lineWidth=17;p.beginPath();p.moveTo(273,257);p.lineTo(367,196);p.lineTo(485,206);p.lineTo(387,257);p.lineTo(273,257);p.stroke();
-   fillPoly([[296,207],[380,166],[446,187],[367,226]],base);fillPoly([[376,176],[408,149],[461,168],[446,186]],shade(base,32));
-   fillPoly([[317,201],[372,182],[392,193],[339,218]],'#141d2d');p.strokeStyle='#e7e9f0';p.lineWidth=9;p.beginPath();p.moveTo(449,173);p.lineTo(477,140);p.lineTo(517,137);p.stroke();
- }else if(vehicle==='hover'){
-   p.shadowColor=fx.id==='stock'?'#55ecff':'#ffe680';p.shadowBlur=35;
-   fillPoly([[176,230],[342,143],[527,187],[391,292]],'#223b65');p.shadowBlur=0;
-   fillPoly([[193,215],[337,144],[500,178],[393,266]],base);fillPoly([[328,153],[396,114],[480,143],[433,206]],shade(base,35));
-   fillPoly([[302,160],[399,119],[457,141],[379,191]],'#85ecf7');
-   for(let i=0;i<4;i++){p.fillStyle=fx.id==='rainbow'?['#ff78a2','#ffe68a','#74f1e1','#bd85ff'][i]:'#72f0ff';p.fillRect(218+i*65,266-i*2,34,9);}
- }else{
-   const isTruck=vehicle==='pickup',sports=vehicle==='turbo',starter=vehicle==='coupe';
-   const drop=sports?6:isTruck?-8:0;
-   const rearWheel=[246,278+drop],frontWheel=[473,248+drop];
-   const drawWheel=(x,y,rx=33,ry=41)=>{p.fillStyle='#080c17';p.beginPath();p.ellipse(x,y,rx,ry,.18,0,Math.PI*2);p.fill();p.fillStyle=wheels.color;p.beginPath();p.ellipse(x,y,rx-13,ry-13,.18,0,Math.PI*2);p.fill();p.fillStyle='#26374c';p.beginPath();p.ellipse(x,y,9,13,.18,0,Math.PI*2);p.fill();p.strokeStyle='#ebf5ff';p.lineWidth=3;p.beginPath();p.ellipse(x,y,rx-15,ry-15,.18,0,Math.PI*2);p.stroke();};
-   drawWheel(...rearWheel,isTruck?34:32,isTruck?43:39);drawWheel(...frontWheel,sports?35:32,sports?42:39);
-   p.fillStyle='#000b19a5';p.beginPath();p.ellipse(384,302+drop,230,26,-.05,0,Math.PI*2);p.fill();
-   const bodyTop=isTruck
-     ? [[190,208+drop],[336,172+drop],[509,147+drop],[548,188+drop],[389,221+drop],[229,239+drop]]
-     : sports
-       ? [[194,214+drop],[330,170+drop],[504,144+drop],[548,182+drop],[419,223+drop],[250,246+drop]]
-       : [[190,214+drop],[320,171+drop],[499,147+drop],[542,188+drop],[401,230+drop],[234,248+drop]];
-   const sidePanel=isTruck
-     ? [[190,208+drop],[229,239+drop],[228,286+drop],[201,270+drop],[191,239+drop]]
-     : [[190,214+drop],[234,248+drop],[235,291+drop],[204,276+drop],[191,239+drop]];
-   const rightSide=isTruck
-     ? [[229,239+drop],[389,221+drop],[548,188+drop],[540,231+drop],[378,263+drop],[228,286+drop]]
-     : [[234,248+drop],[401,230+drop],[542,188+drop],[530,232+drop],[378,272+drop],[235,291+drop]];
-   const frontFace=isTruck
-     ? [[509,147+drop],[548,188+drop],[540,231+drop],[500,198+drop]]
-     : [[499,147+drop],[542,188+drop],[530,232+drop],[492,197+drop]];
-   fillPoly(sidePanel,shade(base,-10));
-   fillPoly(rightSide,shade(base,-24));
-   fillPoly(frontFace,shade(base,-35));
-   fillPoly(bodyTop,base);
-   if(isTruck){
-     fillPoly([[193,209+drop],[308,180+drop],[376,190+drop],[266,228+drop]],'#172a43');
-     fillPoly([[201,211+drop],[300,186+drop],[350,193+drop],[260,222+drop]],shade(base,15));
-   }
-   const cabinBase=isTruck
-     ? [[336,171+drop],[387,128+drop],[474,147+drop],[430,196+drop],[349,201+drop]]
-     : sports
-       ? [[316,164+drop],[392,112+drop],[477,135+drop],[441,187+drop],[352,196+drop]]
-       : [[299,166+drop],[383,108+drop],[478,139+drop],[431,193+drop],[340,202+drop]];
-   const windshield=isTruck
-     ? [[349,166+drop],[389,136+drop],[422,142+drop],[388,179+drop]]
-     : sports
-       ? [[331,158+drop],[392,121+drop],[425,130+drop],[377,173+drop]]
-       : [[317,159+drop],[383,119+drop],[421,132+drop],[374,177+drop]];
-   const sideWindow=isTruck
-     ? [[392,136+drop],[448,148+drop],[428,182+drop],[389,179+drop]]
-     : sports
-       ? [[395,122+drop],[458,138+drop],[440,175+drop],[393,170+drop]]
-       : [[385,121+drop],[456,143+drop],[429,185+drop],[379,178+drop]];
-   fillPoly(cabinBase,shade(base,18));
-   fillPoly(windshield,'#8bcbe4');
-   fillPoly(sideWindow,'#3e7693');
-   p.strokeStyle='#e6faff';p.lineWidth=4;p.beginPath();p.moveTo(windshield[1][0],windshield[1][1]);p.lineTo(windshield[3][0],windshield[3][1]);p.stroke();
-   // custom wrap clipped across the top and right-side panels for a cleaner shape
-   p.save();p.beginPath();p.moveTo(bodyTop[0][0],bodyTop[0][1]);bodyTop.slice(1).forEach(pt=>p.lineTo(pt[0],pt[1]));rightSide.slice().reverse().forEach(pt=>p.lineTo(pt[0],pt[1]));p.closePath();p.clip();
-   p.globalAlpha=.88;p.strokeStyle=wrap.accent;p.fillStyle=wrap.accent;
-   if(wrap.id==='sunset'||wrap.id==='galaxy'){fillPoly([[178,252+drop],[560,152+drop],[560,203+drop],[188,302+drop]],wrap.accent,null);}
-   if(wrap.id==='rally'||wrap.id==='checkers'||wrap.id==='gold'){for(let i=-2;i<6;i++){p.lineWidth=wrap.id==='gold'?14:8;p.beginPath();p.moveTo(255+i*48,179+drop);p.lineTo(340+i*48,292+drop);p.stroke();}}
-   if(wrap.id==='electric'||wrap.id==='flames'){p.lineWidth=11;p.beginPath();p.moveTo(247,255+drop);p.lineTo(318,230+drop);p.lineTo(302,252+drop);p.lineTo(392,202+drop);p.lineTo(375,226+drop);p.lineTo(510,174+drop);p.stroke();}
-   if(wrap.id==='forest'){for(let i=0;i<18;i++){p.fillStyle=i%2?'#273f34':'#90b17d';p.fillRect(250+(i*41)%282,173+(i*31)%109,24,12);}}
-   if(wrap.id==='galaxy'){for(let i=0;i<26;i++){p.fillStyle='#fff4fd';p.fillRect(242+(i*47)%288,169+(i*21)%122,3,3);}}
+ const cv=$('garagePreview');if(!cv)return;
+ const p=cv.getContext('2d'),w=cv.width,h=cv.height;
+ const col=PAINTS[save.color],wrap=byId(WRAPS,save.wrap),rim=byId(WHEELS,save.wheel),fx=byId(EFFECTS,save.effect),vehicle=save.vehicle;
+ const accent=wrap.id==='stock'?'#67e1fc':wrap.accent;
+ p.clearRect(0,0,w,h);p.imageSmoothingEnabled=true;
+ const poly=(points,fill,stroke='#102235',sw=4)=>{p.beginPath();points.forEach(([x,y],i)=>i?p.lineTo(x,y):p.moveTo(x,y));p.closePath();p.fillStyle=fill;p.fill();if(stroke){p.strokeStyle=stroke;p.lineWidth=sw;p.lineJoin='round';p.stroke();}};
+ const line=(points,color,width=3)=>{p.beginPath();points.forEach(([x,y],i)=>i?p.lineTo(x,y):p.moveTo(x,y));p.strokeStyle=color;p.lineWidth=width;p.lineCap='round';p.lineJoin='round';p.stroke();};
+ const rect=(x,y,ww,hh,color)=>{p.fillStyle=color;p.fillRect(x,y,ww,hh);};
+ const ellipse=(x,y,rx,ry,color)=>{p.beginPath();p.ellipse(x,y,rx,ry,0,0,Math.PI*2);p.fillStyle=color;p.fill();};
+ const txt=(v,x,y,size,color,align='left')=>{p.textAlign=align;p.font=`900 ${size}px system-ui,Arial,sans-serif`;p.fillStyle=color;p.fillText(v,x,y);p.textAlign='left';};
+ const round=(x,y,ww,hh,r,fill,stroke=null,sw=3)=>{p.beginPath();p.roundRect(x,y,ww,hh,r);p.fillStyle=fill;p.fill();if(stroke){p.strokeStyle=stroke;p.lineWidth=sw;p.stroke();}};
+ const bodyShade=(hex,delta)=>{let n=parseInt(hex.slice(1),16),cl=v=>Math.max(0,Math.min(255,v+delta));return `rgb(${cl(n>>16)},${cl(n>>8&255)},${cl(n&255)})`;};
+ const wheel=(x,y,r=46)=>{
+   ellipse(x,y,r+6,r+6,'#09121e');ellipse(x,y,r,r,'#0f141f');
+   p.lineWidth=5;p.strokeStyle='#455467';p.beginPath();p.arc(x,y,r-5,0,7);p.stroke();
+   ellipse(x,y,r-11,r-11,'#1a283b');ellipse(x,y,r-16,r-16,rim.color);
+   ellipse(x,y,r-20,r-20,'#1b334c');
+   p.save();p.translate(x,y);
+   for(let i=0;i<5;i++){p.rotate(Math.PI*2/5);poly([[-5,-5],[-12,-r+18],[0,-r+12],[12,-r+18],[5,-5]],rim.color,null);}
+   p.restore();ellipse(x,y,10,10,'#e8f3fd');ellipse(x,y,5,5,'#34475d');
+   ellipse(x-10,y-13,3,3,'#ffffff99');
+ };
+ const shade=bodyShade(col,-29),light=bodyShade(col,26);
+ const neon=fx.id==='stock'?'#51ddec':fx.id==='rainbow'?'#d593ff':fx.color;
+ // Arcade showroom stage: contrast and ground reference matter more than fake perspective.
+ const bg=p.createLinearGradient(0,0,0,h);bg.addColorStop(0,'#122a47');bg.addColorStop(.65,'#23486a');bg.addColorStop(1,'#091b2d');rect(0,0,w,h,bg);
+ p.save();p.globalAlpha=.13;poly([[76,41],[232,41],[306,315],[0,315]],'#bce7ff',null);poly([[506,41],[651,41],[720,315],[394,315]],'#bce7ff',null);p.restore();
+ for(let i=0;i<7;i++){rect(i*125-25,54,2,245,'#a3cdea22');}
+ rect(0,40,w,4,'#4e7295');rect(0,44,w,23,'#102c48');
+ txt('THE PIT SHOP  /  VEHICLE SHOWROOM',19,60,15,'#c3edff');txt('CUSTOM BUILD',700,60,14,'#ffe087','right');
+ rect(0,296,w,94,'#13283b');
+ for(let i=0;i<6;i++){line([[0,308+i*15],[w,308+i*15]],'#456e8859',1);}
+ for(let i=-4;i<14;i++){line([[360+i*25,290],[360+i*93,390]],'#507c9c55',1);}
+ ellipse(360,314,288,27,'#020f1e9e');
+ p.save();p.shadowBlur=31;p.shadowColor=neon;ellipse(365,305,226,11,neon+'72');p.restore();
+ // Sticker decals are painted onto body surfaces; stock remains visibly detailed.
+ const decal=(x,y,ww=120)=>{
+   if(wrap.id==='stock'){line([[x,y],[x+ww,y]],'#ffffff88',3);return;}
+   p.save();p.strokeStyle=accent;p.lineWidth=8;p.lineCap='butt';
+   if(['rally','checkers','gold'].includes(wrap.id)){
+     for(let i=0;i<3;i++)line([[x+i*22,y-18],[x+i*22+23,y+13]],accent,wrap.id==='gold'?13:8);
+   }else if(['electric','flames'].includes(wrap.id)){
+     poly([[x,y+10],[x+33,y-17],[x+54,y-6],[x+81,y-25],[x+70,y],[x+ww,y-9],[x+60,y+18],[x+51,y+5]],accent,null);
+   }else if(wrap.id==='forest'){
+     for(let i=0;i<7;i++)poly([[x+i*18,y+(i%3)*4],[x+i*18+22,y-13],[x+i*18+16,y+10]],i%2?'#213d30':'#80bc72',null);
+   }else if(wrap.id==='galaxy'){
+     rect(x,y-18,ww,34,'#5e47a9');for(let i=0;i<14;i++)ellipse(x+(i*47)%ww,y-15+(i*19)%31,2,2,'#ffffff');
+   }else{poly([[x,y-14],[x+ww,y-22],[x+ww,y+13],[x,y+22]],accent,null);}
    p.restore();
-   // lower rocker / trim and lights
-   fillPoly(isTruck?[[225,284+drop],[379,261+drop],[541,231+drop],[528,244+drop],[376,273+drop],[228,295+drop]]:[[235,291+drop],[378,270+drop],[530,232+drop],[519,247+drop],[375,281+drop],[236,302+drop]],'#21384f');
-   p.fillStyle='#ff7a7f';p.fillRect(209,230+drop,28,10);p.fillRect(262,239+drop,18,8);
-   p.fillStyle='#ffd97d';p.fillRect((sports?505:isTruck?515:502),187+drop,14,10);
-   if(starter){p.fillStyle='#15233a';p.fillRect(252,188+drop,86,8);} if(sports){p.fillStyle='#151b30';p.fillRect(252,181+drop,128,9);}
+ };
+ if(vehicle==='pickup'){
+   // Cab + independent truck bed, hood, bumpers and wheel arches.
+   poly([[120,203],[316,203],[326,192],[344,190],[357,150],[383,130],[466,130],[489,157],[506,205],[579,212],[602,231],[602,269],[574,284],[144,284],[122,268]],shade,'#0b1b2e',6);
+   // broad painted body side
+   poly([[127,213],[321,213],[334,206],[499,206],[573,215],[591,230],[589,262],[570,270],[142,270],[129,255]],col,null);
+   // Separate squared-off cargo bed and reinforced rail
+   rect(132,198,192,9,'#0e2134');rect(146,201,165,8,light);line([[325,202],[326,270]],'#14304a',5);
+   // Cabin roof frame + two clearly separate windows
+   poly([[348,201],[365,155],[387,137],[462,137],[482,164],[495,203]],light,'#0a1e30',5);
+   poly([[374,157],[393,144],[423,144],[423,190],[359,190]],'#7dd0ed','#12324b',4);
+   poly([[432,144],[459,144],[472,165],[484,190],[432,190]],'#65a8d0','#12324b',4);
+   line([[426,144],[426,201]],'#102d45',6);line([[485,202],[488,267]],'#28516c',3);
+   // Rear door handle and functional body break
+   round(451,221,27,7,3,'#e5f4ff','#1c3a54',1);round(362,220,25,7,3,'#e5f4ff','#1c3a54',1);
+   // Large rear truck-bed accent and rocker plate
+   decal(158,240,126);rect(328,267,210,9,'#24465d');rect(344,274,116,6,'#aec9d7');
+   // Front bumper, headlights, tail lights
+   round(586,233,13,24,4,'#ecf7ff','#273d51',2);rect(589,235,12,10,'#ffe392');round(114,230,15,31,3,'#d84259','#1a344a',2);rect(113,255,17,9,'#ff8c71');
+   round(584,267,30,12,3,'#233b53');round(108,268,38,12,3,'#273e53');
+   // Extended wheel arches and off-road tires
+   ellipse(232,275,57,56,'#0d2034');ellipse(510,275,57,56,'#0d2034');wheel(232,278,47);wheel(510,278,47);
+   // Stamped fenders and trim
+   line([[171,265],[173,243],[190,228],[232,220],[275,232],[292,259]],'#23435d',4);
+   line([[449,261],[451,240],[464,222],[512,218],[546,232],[558,260]],'#23435d',4);
+   p.strokeStyle='#ffe3a0';p.lineWidth=5;p.beginPath();p.arc(232,278,52,3.6,5.72);p.arc(510,278,52,3.6,5.72);p.stroke();
+   txt('4 × 4',306,254,18,'#eaf7ff');
+ }else if(vehicle==='coupe'||vehicle==='turbo'){
+   const gt=vehicle==='turbo';
+   // Full hatch/coupe silhouette, with windshield and rear glass readable even in a bright paint.
+   poly(gt?[[127,246],[170,232],[245,219],[288,180],[340,153],[447,153],[496,204],[569,225],[613,246],[603,277],[140,281]]:[[127,243],[168,221],[248,213],[289,170],[330,152],[444,153],[492,209],[565,222],[615,241],[607,277],[140,279]],shade,'#0b1929',6);
+   poly([[145,241],[182,221],[266,220],[298,185],[338,163],[441,163],[483,217],[572,231],[594,245],[593,270],[146,270]],col,null);
+   // Cabin glass with division lines and reflection stripes.
+   poly([[300,194],[335,166],[373,165],[374,213],[278,214]],'#8ee4f1','#0d253e',5);
+   poly([[382,165],[440,167],[474,211],[384,211]],'#548db4','#0d253e',5);
+   line([[376,168],[376,218]],'#122a42',6);
+   line([[326,183],[358,175]],'#eaffff91',4);line([[400,176],[435,181]],'#eaffff6b',4);
+   if(gt){poly([[159,232],[170,196],[230,196],[230,205],[187,211],[182,235]],'#132538');line([[172,195],[225,195]],'#ffe89c',4);}
+   round(421,229,29,7,4,'#d9eaf5');decal(260,247,110);
+   rect(174,269,376,10,'#223a50');rect(167,281,90,8,'#121d2e');
+   // spoiler, grille, headlights, and distinct bumpers.
+   if(gt){rect(158,190,12,37,'#0b1d32');round(126,187,94,13,4,'#0f2136','#93edff',2);}
+   poly([[580,239],[617,247],[618,259],[581,258]],'#182a3e');round(585,241,23,10,3,'#e5faff');rect(602,255,18,8,'#ffe78d');
+   round(125,241,15,27,3,'#fe6886');
+   ellipse(237,279,50,51,'#0b1c2d');ellipse(511,279,50,51,'#0b1c2d');wheel(237,284,gt?43:42);wheel(511,284,gt?45:43);
+   txt(gt?'GT / 99':'NITRO',420,255,19,'#eef7ff');
+ }else if(vehicle==='bike'){
+   // Motorcycle: two large round wheels, visible suspension, fuel tank and handlebars.
+   line([[246,271],[362,222],[484,271],[302,273],[368,225]],'#192a3f',13);
+   wheel(222,265,50);wheel(511,265,50);
+   line([[223,261],[323,222],[364,272],[222,261]],'#dde7f3',8);
+   line([[366,270],[492,204],[512,266]],'#b9cedd',9);
+   poly([[296,211],[346,174],[423,188],[445,219],[353,236]],col,'#102238',5);
+   poly([[345,176],[367,164],[431,178],[443,190]],light,'#182e49',3);
+   round(285,197,92,11,5,'#172b43');rect(418,189,52,18,'#1a2c42');
+   line([[483,197],[494,173],[522,172]],'#e5f4ff',7);line([[511,173],[535,180]],'#152a40',8);
+   poly([[443,201],[470,211],[462,231],[440,228]],'#e9f5ff');rect(450,221,22,7,'#ffe695');
+   poly([[303,213],[338,220],[319,242]],shade);decal(343,209,59);
+   round(300,271,87,17,7,'#293a55');round(319,285,68,10,5,'#9da9bc');
+ }else if(vehicle==='hover'){
+   p.save();p.shadowColor=neon;p.shadowBlur=23;ellipse(369,277,229,19,'#5bdcf97b');p.restore();
+   poly([[111,255],[178,215],[269,216],[319,166],[402,142],[473,176],[493,205],[583,222],[636,248],[603,282],[143,282]],shade,'#0e2035',6);
+   poly([[149,249],[192,221],[284,224],[328,177],[402,152],[468,182],[498,219],[588,236],[605,251],[568,266],[157,266]],col,null);
+   poly([[324,207],[349,179],[405,158],[460,186],[470,207]],'#80e8ff','#1a3654',5);
+   poly([[122,255],[236,239],[254,260],[147,273]],light);poly([[494,241],[612,248],[604,264],[483,262]],light);
+   for(let i=0;i<4;i++){round(216+i*90,270,40,13,6,i%2?'#56bfff':'#6cfce4');}
+   rect(300,260,155,10,'#0e2b4a');decal(335,242,90);
+   for(let i=0;i<3;i++){ellipse(239+i*116,289,22,7,neon);}
  }
- // Exhaust cosmetic emission; grounded right-rear of car
+ // Light bloom, poster flair and status below vehicle -- not on top of body.
+ p.save();p.globalAlpha=.8;p.fillStyle='#fff4b9';for(const [x,y,r] of [[85,116,3],[635,132,3],[665,231,2],[96,238,2]]){
+   line([[x-r*3,y],[x+r*3,y]],'#e2faff',2);line([[x,y-r*3],[x,y+r*3]],'#e2faff',2);
+ }p.restore();
  if(fx.id!=='stock'){
-  for(let i=0;i<6;i++){
-   const x=152-i*17,y=259+i*8,col=fx.id==='rainbow'?['#ff7687','#ffd86d','#70f7d7','#a784ef'][i%4]:fx.color;
-   p.fillStyle=col;p.globalAlpha=1-i*.12;
-   if(fx.id==='heart'){p.font='bold 24px sans-serif';p.fillText('♥',x,y);}else{p.beginPath();p.moveTo(x,y-9);p.lineTo(x+16,y+3);p.lineTo(x,y+12);p.fill();}
-  }p.globalAlpha=1;
+   for(let i=0;i<7;i++){const x=119-i*17,y=258+(i%3)*9,color=fx.id==='rainbow'?['#6cfce4','#ffe579','#ff76b5','#a19bff'][i%4]:fx.color;
+     if(fx.id==='heart')txt('♥',x,y,22,color);else poly([[x-6,y-6],[x+10,y],[x-6,y+7]],color,null);
+   }
  }
- p.fillStyle='#e4f7ff';p.font='bold 18px monospace';p.fillText(byId(VEHICLES,vehicle).name.toUpperCase(),20,351);
- p.fillStyle='#ffe1a2';p.font='bold 12px monospace';p.fillText('WRAP: '+wrap.name.toUpperCase()+' · WHEELS: '+wheels.name.toUpperCase(),20,372);
+ rect(0,342,w,48,'#0d2135df');txt(byId(VEHICLES,vehicle).name.toUpperCase(),18,364,19,'#f4faff');
+ txt('WRAP: '+wrap.name.toUpperCase()+'  /  WHEELS: '+rim.name.toUpperCase(),18,383,11,'#ffe59e');
  if(damaged(vehicle)){
-  p.fillStyle='#071729d8';p.fillRect(0,110,w,192);p.fillStyle='#ffe0a1';p.font='bold 35px monospace';p.textAlign='center';p.fillText('🔧 NEEDS REPAIRS',w/2,213);p.font='bold 19px monospace';p.fillText(repairCost(vehicle)+' COINS · VISIT SERVICE BELOW',w/2,251);p.textAlign='left';
+   rect(0,103,w,207,'#07182bdc');txt('NEEDS REPAIRS',w/2,206,38,'#ffe49c','center');txt(repairCost(vehicle)+' COINS  ·  VISIT SERVICE BELOW',w/2,244,17,'#f8faff','center');
  }
 }
 function renderGarage(){
